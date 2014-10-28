@@ -8,6 +8,6 @@ In difference with the Google Tag Manager TagMan does not have a lot of open edu
 
 A little bit later I will provide here the description of TagMan and how it works. But for now I just gonna add some code snippets that allow me to customize the tags and parameters through TagMan without any data layer modification and without any changes on the partners side.
 
-Will be happy to put me in contact here with somebody who knows and love TagMan as I do and will help me to resolve some problems. From my side I´m also open for new challenge and will be glad to help.
+Will be happy to put me in contact here with somebody who knows and love TagMan as I do and will help me to resolve some problems. From my side I´m also opened for new challenges and will be glad to help.
 
 
