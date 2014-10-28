@@ -1,0 +1,23 @@
+//JS simple condition
+
+//In my data layer I have the parameter device = 'D' (for desktop) and 'T' (for tablet).
+//But my provider´s grredy feed want it like 'desktop' and 'tablet'.
+//So, we can create a custom parameter for that provider with a simple condition 
+//replacing the value of the parameter and avoiding changes in our data layer. 
+
+(function() {
+
+//You can add here console.log('fired my_param'); to see on console that the condition worked.
+    
+    if (tmParam.device.indexOf('D') > -1) {
+		new_device = 'desktop';
+	} else if (tmParam.device.indexOf('T') > -1) {
+		new_device = 'tablet';
+	} else {
+		new_device = '';
+	}
+	return new_device;
+})()
+
+//tmParam is a TagMan method to call the TagMan parameters. "device" - inical parameter that I have in my data layer. 
+//"new_device" - new custom parameter created for the new provider with a sensible feed.
