@@ -1,0 +1,12 @@
+//Convert upper-case value of the param to the lower-case format
+
+(function() {
+
+// to make a console output add: console.log('fired lower_my_parameter');
+
+    lower_my_parameter=tmParam.my_parameter;
+    return lower_my_parameter.toLowerCase();
+    
+//Use toUpperCase method for the reverse manipulation.
+
+})()
