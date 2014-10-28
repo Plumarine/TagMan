@@ -1,0 +1,29 @@
+// Add new parameter to the tag that are being missed in the TagMan template but requered by the provider
+
+// Go to the Tag Template -> Edit -> Custom tab and study the code of the template and it´s structure.
+
+// Add new parameters implementing new vars nad passing there the values of your existing paramters.
+//Parameters which values you are to pass in your new vars should be already created in data layer and in TagMan.
+
+    var destination_id = tmParam.arrival_code;
+    var destination_city = tmParam.arrival_city;
+    var source = tmParam.source;
+
+//Make a condition . pass the value of the param if the param exists and nothing if the param does not exist.
+    
+    var local_destination_id = destination_id ? destination_id : "";
+    var local_destination_city = destination_city ? destination_city : "";
+    var local_source = source ? source : "";
+    
+//As you are only to modificate the code before the custom_behavior function. You need to creat a new JS object to pass the params.
+//Name the object default_name + 2 and pass there you params
+
+    var local_obj2 = {
+        'destination_id': destination_id,
+        'destination_city': destination_city,
+        'source': source,
+};
+
+//Dont´forget to make a window call.
+
+    window.myprovidercall = local_obj2;
