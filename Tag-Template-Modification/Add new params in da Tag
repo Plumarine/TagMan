@@ -2,7 +2,7 @@
 
 // Go to the Tag Template -> Edit -> Custom tab and study the code of the template and it´s structure.
 
-// Add new parameters implementing new vars nad passing there the values of your existing paramters.
+// Add new parameters implementing new vars nad passing there the values of your existing parameters.
 //Parameters which values you are to pass in your new vars should be already created in data layer and in TagMan.
 
     var destination_id = tmParam.arrival_code;
