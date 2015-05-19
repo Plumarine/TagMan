@@ -25,3 +25,19 @@ window.ProviderProperties = {
 	for (var i = 0; i <= local_keys.length; i++) {
 		helperFunc(local_keys[i], local_values[i]);
 	}
+
+//Crapy window pushing
+    window.params = [];
+    window.params[0]= "tp="+param_total_price;
+    window.params[1]= "cu="+param_currency_code;
+    window.params[2]= "fc="+param_from_iata;
+    window.params[3]= "tc="+param_to_iata;
+    window.params[4]= "dd="+param_departure_date;
+    window.params[5]= "a="+param_nb_adults;
+	window.params[6]= "c="+param_nb_children;
+	window.params[7]= "i="+param_nb_infants;
+	window.params[8]= "rt="+param_rt;
+	window.params[9]= "rd="+param_return_date;
+	window.params[10]= "ccf="+param_credit_card_fees;
+	window.params[11]= "sf="+param_service_fees;
+	window.params[12]= "pm="+param_card_type;
