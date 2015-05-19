@@ -1,0 +1,27 @@
+window.ProviderProperties = {
+		'page_id': custom_page_id
+	}
+ 
+	function helperFunc(key, value) {
+		if (value) {
+			window.ProviderProperties[key] = value;
+		}
+	}
+ 
+	helperFunc('site_language', param_site_language);
+	helperFunc('site_country', param_site_country);
+	helperFunc('site_currency', param_site_currency);
+	helperFunc('display_format_type', param_display_format_type);
+	helperFunc('user_guest', param_user_guest);
+	helperFunc('user_member_id', param_user_member_id);
+	helperFunc('user_default_airport', param_user_default_airport);
+	helperFunc('user_airline_loyalty', param_user_airline_loyalty.join(','));
+	helperFunc('pricing', param_pricing.join(','));
+	helperFunc('sort_order', param_sort_order);
+	helperFunc('number_of_opaque_listings', param_number_of_opaque_listings);
+	helperFunc('selection_price', param_selection_price.join(','));
+	helperFunc('product_category', param_product_category);
+ 
+	for (var i = 0; i <= local_keys.length; i++) {
+		helperFunc(local_keys[i], local_values[i]);
+	}
