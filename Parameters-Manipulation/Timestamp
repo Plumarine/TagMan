@@ -8,3 +8,12 @@
 //Convert date to timestamp
 var timestamp_1 =''+dep_year+'/'+dep_month+'/'+dep_day+'';
 var timestamp = (new Date(timestamp_1).getTime())/1000;
+
+
+
+//Example
+(function() {
+    var prepare_timestamp = tmParam.departure_date.concat(" 00:00:00");
+    var departure_timestamp = (new Date(prepare_timestamp)).getTime()/1000;
+    return departure_timestamp;
+})()
