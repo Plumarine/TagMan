@@ -34,3 +34,14 @@
 	}
 	return alpha_flight_type;
 })()
+
+//Another example
+//Checking the length of parameter
+(function() {
+    if (tmParam.dep_month && tmParam.dep_month.toString().length == 1) {
+        dep_month_twodigits = '0' + tmParam.dep_month;
+    } else {
+        dep_month_twodigits = tmParam.dep_month;
+    }
+    return tmParam.dep_year + dep_month_twodigits + tmParam.dep_day; 
+})()
