@@ -1,0 +1,335 @@
+//Step 1
+//Search Results
+(function () {   
+    // Declaration of template customisations     
+    var custom_behaviour_1 = function () {
+	
+		if (localStorage && !localStorage.getItem("expirationFromStorage")) {
+			var d = new Date();
+			var expiration = d.getTime() + 2592000000;
+			localStorage.setItem("expirationFromStorage", expiration);
+			custom_behaviour_2();
+		}else {
+			var dd = new Date();
+			var now = dd.getTime();
+			var expirationFromStorage = localStorage.getItem("expirationFromStorage");
+			if(now > expirationFromStorage){
+				localStorage.removeItem("expirationFromStorage");
+				var expiration = now + 2592000000;
+				localStorage.setItem("expirationFromStorage", expiration);
+				custom_behaviour_2();
+			}else if(now < expirationFromStorage){
+				throw( "No error, just exit in JS" );
+			}
+		}
+		function custom_behaviour_2() {
+			if (sessionStorage) {
+				sessionStorage.setItem("execution_once_results", "true");
+			}
+			var date = new Date();
+			var components = [
+			date.getYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+			date.valueOf()
+			];
+			var timestamp = components.join("");
+			var param_orderid = timestamp;
+		
+			if (tmParam.page_type == 'flights_results_page') {
+				param_convtype = 'flight_search';
+				param_ordervalue = "0";
+			} else if (tmParam.page_type == 'flights_summary') {
+				param_convtype = 'summary_page';
+				param_ordervalue = '0';
+			} else if (tmParam.page_type == 'flights_passenger_details') {
+				param_convtype = 'passenger_details';
+				param_ordervalue = tmParam.levrev;
+			} else if (tmParam.page_type == 'flights_payment_details') {
+				param_convtype = 'payment_details';
+				param_ordervalue = tmParam.levrev;
+			}
+			
+			window.params = [];
+			window.params[0]= "id="+custom_profiletoken;
+			window.params[1]= "type="+param_convtype;
+			window.params[2]= "val="+param_ordervalue;
+			window.params[3]= "orderId="+param_orderid;
+			window.params[4]= "promoCode="+param_promocode;
+			window.params[5]= "valueCurrency="+param_valuecurrency;
+		}
+	}; 
+    var custom_clientsubdomain = {{custom_clientsubdomain}}
+    var custom_profiletoken = {{custom_profiletoken}};
+    var param_convtype = {{param_convtype}};
+    var param_ordervalue = {{param_ordervalue}};
+    var param_orderid = {{param_orderid}};
+    var param_promocode = {{param_promocode}};
+    var param_valuecurrency = {{param_valuecurrency}};
+    var param_gcid = {{param_gcid}};
+    var param_kw = {{param_kw}};
+    var param_prod = {{param_prod}};
+    window.params = [];
+    window.params[0]= "id="+custom_profiletoken;
+    window.params[1]= "type="+param_convtype;
+    window.params[2]= "val="+param_ordervalue;
+    window.params[3]= "orderId="+param_orderid;
+    window.params[4]= "promoCode="+param_promocode;
+    window.params[5]= "valueCurrency="+param_valuecurrency;
+ 
+    if (param_gcid){
+        window.params[6]= "GCID="+param_gcid; // For Live Tracking Only
+    }
+    if (param_kw){
+        window.params[7]= "kw="+param_kw; // For Live Tracking Only
+    }
+    if (param_prod){
+        window.params[8]= "product="+param_prod; // For Live Tracking Only
+    }
+    // Template custom behaviour    
+      
+    custom_behaviour_1();    
+      
+    // End template custom behaviour    
+    var custom_onload_function = function() {
+         k_trackevent(params,custom_clientsubdomain);
+    }
+    var local_scr_url = ('https:' == document.location.protocol ? 'https' : 'http') + "://" + custom_clientsubdomain +".ko.com/media/getpx.php?cid="+custom_profiletoken;
+    TMAN.util.appendScript(local_scr_url, false, { onLoad: function (s) { if (s) { custom_onload_function(); } } });
+  
+})();
+
+//Conditions
+sessionStorage.getItem("execution_once_results") !@ true
+
+
+
+
+
+
+
+
+
+
+//Step 2
+//Passenger Details
+(function () {  
+    // Declaration of template customisations   
+    var custom_behaviour_1 = function () {
+	
+		if (localStorage && !localStorage.getItem("expirationFromStorage")) {
+			var d = new Date();
+			var expiration = d.getTime() + 2592000000;
+			localStorage.setItem("expirationFromStorage", expiration);
+			custom_behaviour_2();
+		}else {
+			var dd = new Date();
+			var now = dd.getTime();
+			var expirationFromStorage = localStorage.getItem("expirationFromStorage");
+			if(now > expirationFromStorage){
+				localStorage.removeItem("expirationFromStorage");
+				var expiration = now + 2592000000;
+				localStorage.setItem("expirationFromStorage", expiration);
+				custom_behaviour_2();
+			}else if(now < expirationFromStorage){
+				throw( "No error, just exit in JS" );
+			}
+		}
+		function custom_behaviour_2() {    
+			if (sessionStorage) {
+				sessionStorage.setItem("execution_once_passenger", "true");
+			}
+			var date = new Date();
+			var components = [
+			date.getYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+			date.valueOf()
+			];
+			var timestamp = components.join("");
+			var param_orderid = timestamp;
+			if (tmParam.page_type == 'flights_results_page') {
+				param_convtype = 'flight_search';
+				param_ordervalue = "0";
+			} else if (tmParam.page_type == 'flights_summary') {
+				param_convtype = 'summary_page';
+				param_ordervalue = '0';
+			} else if (tmParam.page_type == 'flights_passenger_details') {
+				param_convtype = 'passenger_details';
+				param_ordervalue = tmParam.levrev;
+			} else if (tmParam.page_type == 'flights_payment_details') {
+				param_convtype = 'payment_details';
+				param_ordervalue = tmParam.levrev;
+			}
+			window.params = [];
+			window.params[0]= "id="+custom_profiletoken;
+			window.params[1]= "type="+param_convtype;
+			window.params[2]= "val="+param_ordervalue;
+			window.params[3]= "orderId="+param_orderid;
+			window.params[4]= "promoCode="+param_promocode;
+			window.params[5]= "valueCurrency="+param_valuecurrency;
+		}
+	}; 
+    var custom_clientsubdomain = {{custom_clientsubdomain}}
+    var custom_profiletoken = {{custom_profiletoken}};
+    var param_convtype = {{param_convtype}};
+    var param_ordervalue = {{param_ordervalue}};
+    var param_orderid = {{param_orderid}};
+    var param_promocode = {{param_promocode}};
+    var param_valuecurrency = {{param_valuecurrency}};
+    var param_gcid = {{param_gcid}};
+    var param_kw = {{param_kw}};
+    var param_prod = {{param_prod}};
+    window.params = [];
+    window.params[0]= "id="+custom_profiletoken;
+    window.params[1]= "type="+param_convtype;
+    window.params[2]= "val="+param_ordervalue;
+    window.params[3]= "orderId="+param_orderid;
+    window.params[4]= "promoCode="+param_promocode;
+    window.params[5]= "valueCurrency="+param_valuecurrency;
+ 
+    if (param_gcid){
+        window.params[6]= "GCID="+param_gcid; // For Live Tracking Only
+    }
+    if (param_kw){
+        window.params[7]= "kw="+param_kw; // For Live Tracking Only
+    }
+    if (param_prod){
+        window.params[8]= "product="+param_prod; // For Live Tracking Only
+    }
+    // Template custom behaviour    
+      
+    custom_behaviour_1();    
+      
+    // End template custom behaviour    
+    var custom_onload_function = function() {
+         k_trackevent(params,custom_clientsubdomain);
+    }
+    var local_scr_url = ('https:' == document.location.protocol ? 'https' : 'http') + "://" + custom_clientsubdomain +".ko.com/media/getpx.php?cid="+custom_profiletoken;
+    TMAN.util.appendScript(local_scr_url, false, { onLoad: function (s) { if (s) { custom_onload_function(); } } });
+  
+})();
+
+//Condition
+sessionStorage.getItem("execution_once_passenger") !@ true
+
+
+
+
+
+
+
+
+
+
+//Step 3
+//Payment Details
+(function () {  
+    // Declaration of template customisations   
+    var custom_behaviour_1 = function () {
+	
+		// 30 days deduplication from localStorage
+		if (localStorage && !localStorage.getItem("expirationFromStorage_payment")) {
+			var d = new Date();
+			var expiration = d.getTime() + 2592000000;
+			localStorage.setItem("expirationFromStorage_payment", expiration);
+			custom_behaviour_2();
+		}else {
+			var dd = new Date();
+			var now = dd.getTime();
+			var expirationFromStorage_payment = localStorage.getItem("expirationFromStorage_payment");
+			if(now > expirationFromStorage_payment){
+				localStorage.removeItem("expirationFromStorage_payment");
+				var expiration = now + 2592000000;
+				localStorage.setItem("expirationFromStorage_payment", expiration);
+				custom_behaviour_2();
+			}else if(now < expirationFromStorage_payment){
+				throw( "No error, just exit in JS" );
+			}
+		}
+		function custom_behaviour_2() {    
+			if (sessionStorage) {
+				sessionStorage.setItem("execution_once_payment", "true");
+			}
+			var date = new Date();
+			var components = [
+			date.getYear(),
+			date.getMonth(),
+			date.getDate(),
+			date.getHours(),
+			date.getMinutes(),
+			date.getSeconds(),
+			date.valueOf()
+			];
+			var timestamp = components.join("");
+			var param_orderid = timestamp;
+			if (tmParam.page_type == 'flights_results_page') {
+				param_convtype = 'flight_search';
+				param_ordervalue = "0";
+			} else if (tmParam.page_type == 'flights_summary') {
+				param_convtype = 'summary_page';
+				param_ordervalue = '0';
+			} else if (tmParam.page_type == 'flights_passenger_details') {
+				param_convtype = 'passenger_details';
+				param_ordervalue = tmParam.levrev;
+			} else if (tmParam.page_type == 'flights_payment_details') {
+				param_convtype = 'payment_details';
+				param_ordervalue = tmParam.levrev;
+			}
+			window.params = [];
+			window.params[0]= "id="+custom_profiletoken;
+			window.params[1]= "type="+param_convtype;
+			window.params[2]= "val="+param_ordervalue;
+			window.params[3]= "orderId="+param_orderid;
+			window.params[4]= "promoCode="+param_promocode;
+			window.params[5]= "valueCurrency="+param_valuecurrency;
+		}
+		}; 
+    var custom_clientsubdomain = {{custom_clientsubdomain}}
+    var custom_profiletoken = {{custom_profiletoken}};
+    var param_convtype = {{param_convtype}};
+    var param_ordervalue = {{param_ordervalue}};
+    var param_orderid = {{param_orderid}};
+    var param_promocode = {{param_promocode}};
+    var param_valuecurrency = {{param_valuecurrency}};
+    var param_gcid = {{param_gcid}};
+    var param_kw = {{param_kw}};
+    var param_prod = {{param_prod}};
+    window.params = [];
+    window.params[0]= "id="+custom_profiletoken;
+    window.params[1]= "type="+param_convtype;
+    window.params[2]= "val="+param_ordervalue;
+    window.params[3]= "orderId="+param_orderid;
+    window.params[4]= "promoCode="+param_promocode;
+    window.params[5]= "valueCurrency="+param_valuecurrency;
+ 
+    if (param_gcid){
+        window.params[6]= "GCID="+param_gcid; // For Live Tracking Only
+    }
+    if (param_kw){
+        window.params[7]= "kw="+param_kw; // For Live Tracking Only
+    }
+    if (param_prod){
+        window.params[8]= "product="+param_prod; // For Live Tracking Only
+    }
+    // Template custom behaviour    
+      
+    custom_behaviour_1();    
+      
+    // End template custom behaviour    
+    var custom_onload_function = function() {
+         k_trackevent(params,custom_clientsubdomain);
+    }
+    var local_scr_url = ('https:' == document.location.protocol ? 'https' : 'http') + "://" + custom_clientsubdomain +".ko.com/media/getpx.php?cid="+custom_profiletoken;
+    TMAN.util.appendScript(local_scr_url, false, { onLoad: function (s) { if (s) { custom_onload_function(); } } });
+  
+})();
+
+//Condition
+sessionStorage.getItem("execution_once_payment") !@ true
