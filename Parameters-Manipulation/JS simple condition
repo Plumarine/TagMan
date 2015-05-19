@@ -22,6 +22,8 @@
 //tmParam is a TagMan method to call the TagMan parameters. "device" - inical parameter that I have in my data layer. 
 //"new_device" - new custom parameter created for the new provider with a sensible feed.
 
+
+
 //Another example
 (function() {
     console.log('fired alpha_flight_type');
@@ -35,6 +37,8 @@
 	return alpha_flight_type;
 })()
 
+
+
 //Another example
 //Checking the length of parameter
 (function() {
@@ -44,4 +48,20 @@
         dep_month_twodigits = tmParam.dep_month;
     }
     return tmParam.dep_year + dep_month_twodigits + tmParam.dep_day; 
+})()
+
+
+
+//Another example
+(function () {
+    if(tmParam.page_url.indexOf("fr") > -1) {
+       custom_id = "1111";
+    }
+    else if(tmParam.page_url.indexOf("de") > -1) {
+       custom_id = "2222";
+    }
+    else if(tmParam.page_url.indexOf("it") > -1) {
+       custom_id = "3333";
+    }
+    return custom_id;
 })()
