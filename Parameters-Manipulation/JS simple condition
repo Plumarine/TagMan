@@ -21,3 +21,16 @@
 
 //tmParam is a TagMan method to call the TagMan parameters. "device" - inical parameter that I have in my data layer. 
 //"new_device" - new custom parameter created for the new provider with a sensible feed.
+
+//Another example
+(function() {
+    console.log('fired alpha_flight_type');
+    if (tmParam.flight_type.indexOf('r') > -1) {
+        alpha_flight_type = 'roundtrip';
+    } else if (tmParam.flight_type.indexOf('o') > -1) {
+		alpha_flight_type = 'oneway';
+	} else {
+		alpha_flight_type = '';
+	}
+	return alpha_flight_type;
+})()
