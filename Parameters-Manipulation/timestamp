@@ -1,0 +1,10 @@
+//Create timestamp
+(function() {
+    var dd = new Date();
+    var timestamp = dd.getTime();
+    return timestamp;
+})()
+
+//Convert date to timestamp
+var timestamp_1 =''+dep_year+'/'+dep_month+'/'+dep_day+'';
+var timestamp = (new Date(timestamp_1).getTime())/1000;
