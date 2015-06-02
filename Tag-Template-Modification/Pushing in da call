@@ -1,0 +1,15 @@
+//Methods of pushing parameters in the call to provider
+var custom_prog_id = "11111";
+var custom_com_id = "123456";
+var custom_iu = "aaaabbbbbttttgggggeeeeejjjj";
+var param_uniq_id = tmParam.orderid;
+var param_price = tmParam.grosssale;
+var param_data = tmParam.custom_data;
+ 
+window.tip = window.tip || [];
+
+window.tip.push(["_setSale", custom_prog_id, custom_com_id, custom_iu, param_uniq_id, param_price, param_data]);
+ 
+var local_script_url  = (document.location.protocol == "https:" ? "https" : "http") + "://tracking.provider.com/p/tip/";
+	
+TMAN.util.appendScript(local_script_url);
