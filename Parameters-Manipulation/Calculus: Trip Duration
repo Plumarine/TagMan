@@ -1,0 +1,51 @@
+var prepare_timestamp = tmParam.departure_date.concat(" 00:00:00");
+var departure_timestamp = (new Date(prepare_timestamp)).getTime()/1000;
+var socio_dep_day = Number(tmParam.dep_day); 
+var socio_dep_month = Number(tmParam.dep_month); 
+var socio_dep_year = Number(tmParam.dep_year); 
+var socio_arr_day = Number(tmParam.arr_day); 
+var socio_arr_month = Number(tmParam.arr_month);
+var socio_arr_year = Number(tmParam.arr_year);
+var daysInAMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+var balanced_month = socio_dep_month;
+var trip_duration = 1;
+var socio_category_duration = '1-4';
+var return_month = socio_arr_month;
+var daysInDepartureMonth = daysInAMonth[socio_dep_month] -  socio_dep_day + 1;
+
+if ((socio_arr_month != socio_dep_month) && (socio_arr_day > daysInDepartureMonth))
+    {
+        balanced_month = socio_arr_month;
+	}
+if (socio_arr_year != socio_dep_year) 
+	{
+		return_month = socio_arr_month + 12;			
+	}
+if ( (return_month - socio_dep_month ) > 1 ) 
+	{
+	if (socio_dep_month == '12')
+		{
+			balanced_month = 1;
+		}
+		else
+		{
+			balanced_month = socio_dep_month + 1;
+		}
+	trip_duration = 30;
+	}
+if (socio_arr_month == socio_dep_month)
+	{
+		trip_duration = socio_arr_day - socio_dep_day +1;
+	}
+	else
+	{
+		trip_duration = daysInDepartureMonth + socio_arr_day;
+	}
+if ( trip_duration >= 8)
+	{
+		socio_category_duration = '8 +';
+	}
+	else if ( trip_duration >= 5)
+	{
+		socio_category_duration = '5-7';
+	}
