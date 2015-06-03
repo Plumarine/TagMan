@@ -1,0 +1,7 @@
+    if (tmParam.flight_type.indexOf('r') > -1) {
+        var liligo_flight_type = '1';
+    } else if (tmParam.flight_type.indexOf('o') > -1) {
+        var liligo_flight_type = '0';
+	} else {
+		var liligo_flight_type = '';
+	}
