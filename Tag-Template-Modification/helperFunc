@@ -41,3 +41,5 @@ window.ProviderProperties = {
 	window.params[10]= "ccf="+param_credit_card_fees;
 	window.params[11]= "sf="+param_service_fees;
 	window.params[12]= "pm="+param_card_type;
+
+// console.log("Tag fired")
