@@ -20,8 +20,8 @@
 
 
 (function() {
-    integer = $("#priceSel")[0].innerHTML.slice(1, g.indexOf("<"));
-    decimal = document.getElementsByClassName("decimalMetaPricePart")[0].innerHTML;
+    var integer = $("#priceSel")[0].innerHTML.slice(1, g.indexOf("<"));
+    var decimal = document.getElementsByClassName("decimalMetaPricePart")[0].innerHTML;
     var hotel_price_scrap = integer + decimal;
     return hotel_price_scrap;
 })();
