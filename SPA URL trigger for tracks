@@ -1,0 +1,14 @@
+//Updated on Provider´s side?
+(function () {
+    if (window.Provider && Provider.trigger) {
+      Provider.trigger("page_id_updated");
+    }
+})();
+
+//Pixel function
+(function () {
+  var custom_page_id = {{custom_page_id}};
+  window.ProviderProperties = {
+	  	'page_id': custom_page_id
+	 }
+})();
