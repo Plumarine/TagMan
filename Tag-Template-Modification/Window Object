@@ -1,0 +1,73 @@
+(function () {
+ // Capture parameters  
+    var custom_list_partner_ids = (typeof {{custom_list_partner_ids}} !== 'undefined' ? {{custom_list_partner_ids}}.split('|') : []);
+    var custom_site_type = {{custom_site_type}};
+    var custom_customer_id = {{custom_customer_id}};
+    var custom_product_list = (typeof {{custom_product_list}} !== 'undefined' ? {{custom_product_list}}.split('|') : []);
+    var param_user_segment = {{param_user_segment}};
+    var param_checkin_date = {{param_checkin_date}};
+    var param_checkout_date = {{param_checkout_date}};
+    var param_Number_person_inbooking = {{param_Number_person_inbooking}};
+    
+    // Do not modify below
+    var local_mastertagjs_url = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//static.provider.net/js/ld/ld.js";
+    var custom_onload_function = function() {
+     
+    	window.provider_q = window.provider_q || [];
+		 
+	// Create internal array to push object into
+		var providerObjectsToPush = [];
+		 
+	//Set the account object
+		var providerAccountObj = {};
+		providerAccountObj.event = "setAccount";
+		if(custom_list_partner_ids.length == 1){providerAccountObj.account = parseInt(custom_list_partner_ids[0],10);}
+		if(custom_list_partner_ids.length > 1){providerAccountObj.account = custom_list_partner_ids;}
+		providerObjectsToPush.push(providerAccountObj);
+		 
+	//Set the site type event if available
+		if (typeof custom_site_type !== 'undefined' && custom_site_type.length>0)
+		{
+		    var providerSiteTypeObj = {};
+		    providerSiteTypeObj.event = "setSiteType";
+		    providerSiteTypeObj.type = custom_site_type;
+		    providerObjectsToPush.push(providerSiteTypeObj);
+		}
+		 
+		 
+	//Set the customer id event if available
+		if (typeof custom_customer_id !== 'undefined' && custom_customer_id.length>0)
+		{
+		    var providerCustomerIdObj = {};
+		    providerCustomerIdObj.event = "setCustomerId";
+		    providerCustomerIdObj.id = custom_customer_id;
+		    providerObjectsToPush.push(providerCustomerIdObj);
+		}
+		 
+	//Set the search event
+		var providerViewSearchObj = {};
+		providerViewSearchObj.event = "viewSearch";
+		providerViewSearchObj.checkin_date = param_checkin_date;
+		providerViewSearchObj.checkout_date = param_checkout_date;
+        providerViewSearchObj.pers =  param_Number_person_inbooking ; 
+		providerObjectsToPush.push(providerViewSearchObj);
+		
+	//Set the list event
+		if (typeof custom_product_list !== 'undefined' && custom_product_list.length>0 && custom_product_list.length<=3)
+		{
+		    var providerViewListObj = {};
+		    providerViewListObj.event = "viewItem"
+		    providerViewListObj.product = custom_product_list[0];
+	// Add user segment property if available
+		    if (typeof param_user_segment !== 'undefined' && param_user_segment.length>0)
+		    {
+		        providerViewListObj.user_segment = param_user_segment;
+		    }
+		    providerObjectsToPush.push(providerViewListObj);
+		}
+		 
+	// Push objects to the provider q
+		window.provider_q.push(providerObjectsToPush);
+    }
+    TMAN.util.appendScript(local_mastertagjs_url, false, { onLoad: function (s) { if (s) { custom_onload_function(); } } });
+})();
