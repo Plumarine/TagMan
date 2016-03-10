@@ -1,0 +1,19 @@
+//market_char
+(function() {
+
+if (tmParam.market === tmParam.dep_country && tmParam.market === tmParam.arr_country) 
+{
+    return "domestic";
+}
+else if (tmParam.market === tmParam.dep_country && tmParam.market !== tmParam.arr_country) 
+{
+       return "international"; 
+} 
+else if (tmParam.market !== tmParam.dep_country && tmParam.market === tmParam.arr_country) 
+{
+      return "international"; 
+} 
+else{
+   return "row";
+}
+})();
