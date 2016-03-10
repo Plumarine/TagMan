@@ -17,3 +17,23 @@ else{
    return "row";
 }
 })();
+
+//depstamp
+(function() {
+    console.log('sonar timestamp');
+    var stamp1 = tmParam.departure_date.concat(" 00:00:00");
+    var stamp2 = (new Date(prepare_timestamp)).getTime()/1000;
+    var depstamp = stamp2;
+    return depstamp;
+})()
+
+//criteo_product_price
+(function() {
+    console.log("criteo_product_price fired");
+    if(tmParam.website_code == "ES" || tmParam.website_code == "PT"){
+        criteo_product_price = tmParam.levrev;
+    }else{
+        criteo_product_price = tmParam.r_marketing;
+    }
+    return criteo_product_price;
+})();
